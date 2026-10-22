@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gal Binyamin · AI builder and OSINT analyst</title>
+  <meta name="description" content="Gal Binyamin builds conversion-focused websites and AI automations that turn multilingual social media into research-grade data. Case studies: MarinePulse, MyCan, Esther Gomelle and an AI monitoring pipeline.">
+  <meta name="author" content="Gal Binyamin">
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0d11" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://glbnymyn123-galbi.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://glbnymyn123-galbi.github.io/">
+  <meta property="og:title" content="Gal Binyamin · AI builder and OSINT analyst">
+  <meta property="og:description" content="Products people use. Pipelines analysts trust. Case studies: MarinePulse, MyCan, Esther Gomelle and an AI monitoring pipeline.">
+  <meta property="og:image" content="https://glbnymyn123-galbi.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gal Binyamin, AI builder and OSINT analyst, with screenshots of MarinePulse, MyCan and Esther Gomelle">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <script src="main.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gal Binyamin",
+      "url": "https://glbnymyn123-galbi.github.io/",
+      "email": "mailto:glbnymyn123@gmail.com",
+      "jobTitle": "AI builder and OSINT analyst",
+      "sameAs": ["https://github.com/glbnymyn123-GALBI"],
+      "knowsAbout": ["OSINT", "AI automation", "Web development", "Data visualization", "Make.com", "Apify", "Claude"]
+    }
+  </script>
+</head>
+<body>
+  <span class="top-sentinel" data-top-sentinel aria-hidden="true"></span>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark" aria-hidden="true">GB</span>
+        <span class="nav__brand-name">Gal Binyamin</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#pipelines">Pipelines</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
+          <svg class="icon icon--moon" aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg>
+          <svg class="icon icon--sun" aria-hidden="true"><use href="assets/icons.svg#i-sun"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm" href="mailto:glbnymyn123@gmail.com">Email me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-hero style="--i:0">Gal Binyamin, AI builder and OSINT analyst</p>
+          <h1 class="hero__title" id="hero-title" data-hero style="--i:1">
+            <span>Products people use.</span>
+            <span>Pipelines analysts trust.</span>
+          </h1>
+          <p class="hero__lede" data-hero style="--i:2">I build conversion-focused websites and AI automations that turn multilingual social media into research-grade data.</p>
+          <div class="hero__ctas" data-hero style="--i:3">
+            <a class="btn btn--primary" href="#work">
+              View work
+              <svg class="icon icon--nudge" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="mailto:glbnymyn123@gmail.com">Email me</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <figure class="shot shot--back" style="--i:0">
+            <img src="assets/work/esther-hero-1200.jpg"
+                 srcset="assets/work/esther-hero-1200.jpg 1200w, assets/work/esther-hero.jpg 2160w"
+                 sizes="(min-width: 980px) 420px, 70vw"
+                 width="1200" height="750"
+                 alt="Esther Gomelle clinic website, opening screen">
+          </figure>
+          <figure class="shot shot--front" style="--i:1">
+            <img src="assets/work/marinepulse-map-1200.jpg"
+                 srcset="assets/work/marinepulse-map-1200.jpg 1200w, assets/work/marinepulse-map.jpg 2160w"
+                 sizes="(min-width: 980px) 500px, 84vw"
+                 width="1200" height="750"
+                 fetchpriority="high"
+                 alt="MarinePulse dashboard: clustered marine mammal sightings along the eastern Mediterranean coast">
+          </figure>
+          <figure class="shot shot--phone" style="--i:2">
+            <img src="assets/work/mycan-mobile.jpg" width="780" height="1688"
+                 alt="MyCan website on a phone, Hebrew opening screen">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="proof" aria-label="Highlights">
+      <div class="container">
+        <dl class="proof__grid" data-reveal>
+          <div class="proof__item">
+            <dt>products live, each taken from brief to launch</dt>
+            <dd>3</dd>
+          </div>
+          <div class="proof__item">
+            <dt>marine mammal sightings mapped from public social media</dt>
+            <dd>351</dd>
+          </div>
+          <div class="proof__item">
+            <dt>social platforms covered by the monitoring pipeline</dt>
+            <dd>6</dd>
+          </div>
+          <div class="proof__item">
+            <dt>stages in the IMMRAC research pipeline, run from one request</dt>
+            <dd>11</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="work-title">Selected work</h2>
+          <p class="section-lede">Three products in production. For each one I took the brief through research, design, build and launch.</p>
+        </header>
+
+        <!-- MarinePulse -->
+        <article class="case case--feature" id="marinepulse" aria-labelledby="mp-title" data-reveal>
+          <a class="case__media" href="https://glbnymyn123-galbi.github.io/marinepulse/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/work/marinepulse-map-1200.jpg"
+                 srcset="assets/work/marinepulse-map-1200.jpg 1200w, assets/work/marinepulse-map.jpg 2160w"
+                 sizes="(min-width: 1320px) 1240px, 94vw"
+                 width="1200" height="750" loading="lazy" decoding="async"
+                 alt="MarinePulse map view with clustered sighting reports and a species detail panel">
+          </a>
+          <div class="case__head">
+            <div>
+              <h3 class="case__title" id="mp-title">MarinePulse</h3>
+              <p class="case__sub">Sightings dashboard for IMMRAC, the Israel Marine Mammal Research and Assistance Center</p>
+            </div>
+            <a class="link-cta" href="https://glbnymyn123-galbi.github.io/marinepulse/" target="_blank" rel="noopener">
+              Visit site
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+          <div class="case__body">
+            <div class="case__block">
+              <h4 class="case__label">Overview</h4>
+              <p>An interactive map and analysis of 351 marine mammal reports from the coasts of Lebanon, Syria, Gaza and Egypt, compiled over eight months of open-source research. Every point links to its original post, with species, group size, condition and a credibility rating.</p>
+            </div>
+            <div class="case__block">
+              <h4 class="case__label">Execution &amp; stack</h4>
+              <p>I designed an 11-stage pipeline: Arabic and English queries, Apify scrapers for TikTok, YouTube, Instagram and Facebook, and filters that drop aquariums, whale sharks and AI clips. A custom Claude skill reads each video frame by frame to log species, count and location, then every record is checked against the master sheet. The dashboard is plain JavaScript and Leaflet, with clustering, a density layer and live filters.</p>
+              <ul class="chips" aria-label="Stack">
+                <li class="chip">Claude Code skills</li>
+                <li class="chip">Apify</li>
+                <li class="chip">ScrapeCreators</li>
+                <li class="chip">yt-dlp</li>
+                <li class="chip">ffmpeg</li>
+                <li class="chip">Leaflet</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">GitHub Pages</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <h4 class="case__label">Impact</h4>
+              <p>Turned scattered posts from coastlines that are hard to survey in person into a structured, citable dataset, including 37 strandings and 16 monk seal reports, a species the IUCN lists as Vulnerable. The pipeline re-runs on a schedule, so the record keeps growing without manual searching.</p>
+              <!-- METRIC SLOT: add a confirmed outcome here, e.g. "Used in IMMRAC's 2026 sightings report" or researcher hours saved per scan. -->
+            </div>
+          </div>
+        </article>
+
+        <!-- MyCan -->
+        <article class="case case--split" id="mycan" aria-labelledby="mc-title" data-reveal>
+          <div class="case__stage">
+            <a class="case__media case__media--wide" href="https://mycan-453.lovable.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="assets/work/mycan-design-1200.jpg"
+                   srcset="assets/work/mycan-design-1200.jpg 1200w, assets/work/mycan-design.jpg 2160w"
+                   sizes="(min-width: 980px) 640px, 90vw"
+                   width="1200" height="750" loading="lazy" decoding="async"
+                   alt="MyCan can designer on desktop: a 3D can with the customer's label">
+            </a>
+            <div class="case__phone">
+              <img src="assets/work/mycan-mobile-design.jpg" width="780" height="1688" loading="lazy" decoding="async"
+                   alt="MyCan can designer on a phone, in Hebrew">
+            </div>
+          </div>
+          <div class="case__content">
+            <h3 class="case__title" id="mc-title">MyCan</h3>
+            <p class="case__sub">3D can designer and WhatsApp ordering for a custom-filled can brand</p>
+            <div class="case__blocks">
+              <div class="case__block">
+                <h4 class="case__label">Overview</h4>
+                <p>A Hebrew, right-to-left site where customers design a branded can, pick a filling and send a ready order. Ten full-screen frames take a visitor from first impression to checkout in WhatsApp.</p>
+              </div>
+              <div class="case__block">
+                <h4 class="case__label">Execution &amp; stack</h4>
+                <p>A real-time 3D can built with React Three Fiber and GSAP shows the customer's text or logo on the label as they type. Uploaded artwork goes to a private storage bucket, and the WhatsApp order carries a signed link to it, because a wa.me message can only carry text. On phones, each 3D scene loads one screen early, compiles while the browser is idle and renders only while visible.</p>
+                <ul class="chips" aria-label="Stack">
+                  <li class="chip">React</li>
+                  <li class="chip">TypeScript</li>
+                  <li class="chip">TanStack Start</li>
+                  <li class="chip">React Three Fiber</li>
+                  <li class="chip">GSAP</li>
+                  <li class="chip">Tailwind CSS</li>
+                  <li class="chip">Supabase</li>
+                  <li class="chip">Drizzle</li>
+                  <li class="chip">Vitest</li>
+                  <li class="chip">Lovable</li>
+                </ul>
+              </div>
+              <div class="case__block">
+                <h4 class="case__label">Impact</h4>
+                <p>Replaced a chat-and-photos sales process with a self-serve flow. Orders reach the owner with the design, filling and artwork already attached, ready to quote. The site also ships with an Israeli accessibility statement that lists only what the site actually does.</p>
+                <!-- METRIC SLOT: orders per week through the site, or average time from first message to quote. -->
+              </div>
+            </div>
+            <a class="link-cta" href="https://mycan-453.lovable.app" target="_blank" rel="noopener">
+              Visit site
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Esther Gomelle -->
+        <article class="case case--split case--reverse" id="esther" aria-labelledby="eg-title" data-reveal>
+          <div class="case__content case__content--sticky">
+            <h3 class="case__title" id="eg-title">Esther Gomelle</h3>
+            <p class="case__sub">Booking-focused website for a two-branch aesthetic clinic</p>
+            <div class="case__blocks">
+              <div class="case__block">
+                <h4 class="case__label">Overview</h4>
+                <p>A calm, editorial site for a cosmetician with studios in Holon and Herzliya, built to turn social media interest into booked consultations. It leads with proof: real before-and-after results, a focused treatment menu and client recommendations.</p>
+              </div>
+              <div class="case__block">
+                <h4 class="case__label">Execution &amp; stack</h4>
+                <p>I structured the page as a conversion path: story, studio, a 12-treatment menu in English and Hebrew, a nine-case before-and-after slider, recommendations and partner brands. Every booking button opens WhatsApp with a pre-written message, and a bottom dock keeps navigation one tap away on phones, where most visitors arrive.</p>
+                <ul class="chips" aria-label="Stack">
+                  <li class="chip">React</li>
+                  <li class="chip">TypeScript</li>
+                  <li class="chip">Tailwind CSS</li>
+                  <li class="chip">shadcn/ui</li>
+                  <li class="chip">Lovable</li>
+                  <li class="chip">Mobile-first</li>
+                </ul>
+              </div>
+              <div class="case__block">
+                <h4 class="case__label">Impact</h4>
+                <p>Gave the clinic a web presence that matches the in-studio experience and removed the friction between interest and booking. Any visitor is one tap from a WhatsApp conversation, with the treatment context already written.</p>
+                <!-- METRIC SLOT: WhatsApp inquiries per month, before and after launch. -->
+              </div>
+            </div>
+            <a class="link-cta" href="https://esther-grows-site.lovable.app" target="_blank" rel="noopener">
+              Visit site
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+          <div class="case__stack">
+            <a class="case__media case__media--wide" href="https://esther-grows-site.lovable.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="assets/work/esther-results-1200.jpg"
+                   srcset="assets/work/esther-results-1200.jpg 1200w, assets/work/esther-results.jpg 2160w"
+                   sizes="(min-width: 980px) 640px, 90vw"
+                   width="1200" height="750" loading="lazy" decoding="async"
+                   alt="Esther Gomelle before-and-after gallery with a comparison slider">
+            </a>
+            <div class="case__media case__media--wide">
+              <img src="assets/work/esther-treatments-1200.jpg"
+                   srcset="assets/work/esther-treatments-1200.jpg 1200w, assets/work/esther-treatments.jpg 2160w"
+                   sizes="(min-width: 980px) 560px, 80vw"
+                   width="1200" height="750" loading="lazy" decoding="async"
+                   alt="Esther Gomelle treatment menu with English and Hebrew names">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Automations and AI workflows -->
+    <section class="pipelines" id="pipelines" aria-labelledby="pipelines-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="pipelines-title">Automations and AI workflows</h2>
+          <p class="section-lede">The less visible half of my work: pipelines that collect, read and route social media at a volume no analyst could cover by hand.</p>
+        </header>
+
+        <article class="flagship" aria-labelledby="nm-title" data-reveal>
+          <div class="flagship__head">
+            <span class="badge">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-lock-simple"/></svg>
+              Client confidential
+            </span>
+            <h3 class="flagship__title" id="nm-title">Narrative monitoring pipeline</h3>
+            <p class="flagship__sub">Built for a risk-intelligence consultancy that tracks antisemitic narratives online. Analysts used to find, download, watch and log every video by hand. Now they start from a reviewed, prioritized queue.</p>
+          </div>
+
+          <div class="flow-wrap">
+            <div class="flow__track" aria-hidden="true">
+              <span class="flow__packet"></span>
+              <span class="flow__packet"></span>
+              <span class="flow__packet"></span>
+            </div>
+            <ol class="flow" aria-label="How the pipeline works">
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-magnifying-glass"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Collect</h4>
+                  <p class="flow__text">Public posts and videos from six platforms, pulled on a schedule.</p>
+                  <p class="flow__tool">Apify · ScrapeCreators</p>
+                </div>
+              </li>
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-flow-arrow"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Orchestrate</h4>
+                  <p class="flow__text">Scenarios trigger runs and move batches between tools.</p>
+                  <p class="flow__tool">Make.com</p>
+                </div>
+              </li>
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-film-strip"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Process</h4>
+                  <p class="flow__text">Each video is downloaded, split into frames and transcribed.</p>
+                  <p class="flow__tool">ffmpeg · faster-whisper</p>
+                </div>
+              </li>
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-sparkle"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Enrich</h4>
+                  <p class="flow__text">A two-sentence summary plus topic, country, speaker and priority.</p>
+                  <p class="flow__tool">Claude</p>
+                </div>
+              </li>
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-user-check"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Review</h4>
+                  <p class="flow__text">An analyst approves or overrides each row and records why.</p>
+                  <p class="flow__tool">Google Sheets</p>
+                </div>
+              </li>
+              <li class="flow__step">
+                <span class="flow__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-arrows-split"/></svg></span>
+                <div class="flow__copy">
+                  <h4 class="flow__title">Route</h4>
+                  <p class="flow__text">Approved items reach the right regional team every five minutes.</p>
+                  <p class="flow__tool">Python worker</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="flagship__grid">
+            <div class="flagship__impact">
+              <h4 class="case__label">What changed</h4>
+              <p>Research time per item dropped sharply, coverage became consistent across platforms and languages, and analyst hours moved from collection to judgment and reporting.</p>
+              <!-- METRIC SLOT: items processed per week, and minutes per item before vs after. -->
+              <p class="flagship__next">Next: a classifier that flags AI-generated video, now training on analyst labels.</p>
+            </div>
+            <div>
+              <h4 class="case__label">Safeguards by design</h4>
+              <ul class="safeguards">
+                <li class="safeguard">
+                  <span class="safeguard__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-shield-check"/></svg></span>
+                  <div>
+                    <h5>Open sources only</h5>
+                    <p>Built on publicly available posts, the standard for open-source intelligence work.</p>
+                  </div>
+                </li>
+                <li class="safeguard">
+                  <span class="safeguard__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-user-check"/></svg></span>
+                  <div>
+                    <h5>An analyst decides</h5>
+                    <p>The model drafts and a person approves. Every decision carries a recorded reason.</p>
+                  </div>
+                </li>
+                <li class="safeguard">
+                  <span class="safeguard__icon" aria-hidden="true"><svg class="icon"><use href="assets/icons.svg#i-trash"/></svg></span>
+                  <div>
+                    <h5>Zero media footprint</h5>
+                    <p>Downloaded video and audio are deleted after analysis. Only the structured record is kept.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="chips" aria-label="Pipeline stack">
+            <li class="chip">Make.com</li>
+            <li class="chip">Apify</li>
+            <li class="chip">ScrapeCreators</li>
+            <li class="chip">Claude</li>
+            <li class="chip">Claude Code</li>
+            <li class="chip">Python</li>
+            <li class="chip">faster-whisper</li>
+            <li class="chip">ffmpeg</li>
+            <li class="chip">yt-dlp</li>
+            <li class="chip">Google Sheets API</li>
+          </ul>
+        </article>
+
+        <div class="workflows">
+          <article class="wf wf--marine" aria-labelledby="wf-marine-title" data-reveal>
+            <img src="assets/work/marinepulse-analysis-1200.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="">
+            <h3 class="wf__title" id="wf-marine-title">IMMRAC sighting pipeline</h3>
+            <p>From a one-line request to deduplicated, mapped sightings: bilingual queries, four platform scrapers, frame-level species ID and a scheduled re-run.</p>
+            <a class="link-cta" href="#marinepulse">
+              See the MarinePulse case
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg>
+            </a>
+          </article>
+          <article class="wf wf--skills" aria-labelledby="wf-skills-title" data-reveal>
+            <div class="wf__body">
+              <h3 class="wf__title" id="wf-skills-title">Claude Code skill library</h3>
+              <p>Reusable skills I wrote for the steps both pipelines share, so a new research question starts from tested parts instead of a blank script.</p>
+            </div>
+            <ul class="chips" aria-label="Skills">
+              <li class="chip">Video download</li>
+              <li class="chip">Frame extraction</li>
+              <li class="chip">Transcription</li>
+              <li class="chip">Profile audits</li>
+              <li class="chip">Species ID</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolkit -->
+    <section class="toolkit" aria-labelledby="toolkit-title">
+      <div class="container toolkit__grid" data-reveal>
+        <h2 class="section-title" id="toolkit-title">Toolkit</h2>
+        <div class="toolkit__groups">
+          <div class="tk">
+            <h3>Build</h3>
+            <ul class="chips">
+              <li class="chip">HTML &amp; CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">React</li>
+              <li class="chip">TanStack Start</li>
+              <li class="chip">Tailwind CSS</li>
+              <li class="chip">shadcn/ui</li>
+              <li class="chip">Three.js</li>
+              <li class="chip">GSAP</li>
+            </ul>
+          </div>
+          <div class="tk">
+            <h3>Automation and AI</h3>
+            <ul class="chips">
+              <li class="chip">Claude</li>
+              <li class="chip">Claude Code</li>
+              <li class="chip">Make.com</li>
+              <li class="chip">Apify</li>
+              <li class="chip">ScrapeCreators</li>
+              <li class="chip">Lovable</li>
+            </ul>
+          </div>
+          <div class="tk">
+            <h3>Research and data</h3>
+            <ul class="chips">
+              <li class="chip">OSINT</li>
+              <li class="chip">Bilingual query design</li>
+              <li class="chip">Python</li>
+              <li class="chip">Leaflet</li>
+              <li class="chip">Google Sheets</li>
+              <li class="chip">faster-whisper</li>
+              <li class="chip">ffmpeg</li>
+            </ul>
+          </div>
+          <div class="tk">
+            <h3>Ship</h3>
+            <ul class="chips">
+              <li class="chip">Supabase</li>
+              <li class="chip">Drizzle</li>
+              <li class="chip">Vitest</li>
+              <li class="chip">GitHub Pages</li>
+              <li class="chip">Web accessibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__text" data-reveal>
+          <h2 class="section-title" id="about-title">About</h2>
+          <p class="about__lead">I work where research meets product. My favorite problems start as noise and end as something people use every day.</p>
+          <p>As a consultant to a risk-intelligence firm, I build the pipelines that monitor antisemitic narratives across social platforms. With IMMRAC, I turned scattered sighting videos from four coastlines into a mapped dataset. For small businesses, I design sites that turn a visit into a conversation.</p>
+          <p>I build with AI on purpose. Lovable, Claude Code and Make.com give me speed. The architecture, the data checks and the final polish are mine.</p>
+        </div>
+        <dl class="facts" data-reveal>
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>AI automation, OSINT and web products</dd>
+          </div>
+          <div class="fact">
+            <dt>Currently</dt>
+            <dd>Consulting on OSINT pipelines for a risk-intelligence firm</dd>
+          </div>
+          <div class="fact">
+            <dt>Research partner</dt>
+            <dd>IMMRAC, marine mammal sightings in the eastern Mediterranean</dd>
+          </div>
+          <div class="fact">
+            <dt>Email</dt>
+            <dd><a href="mailto:glbnymyn123@gmail.com">glbnymyn123@gmail.com</a></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner" data-reveal>
+        <h2 class="contact__title" id="contact-title">Have a role or a project in mind?</h2>
+        <p>Email is the fastest way to reach me. I'm happy to walk through any of these builds in detail.</p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:glbnymyn123@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-envelope-simple"/></svg>
+            Email me
+          </a>
+          <button class="btn btn--ghost btn--lg" type="button" data-copy="glbnymyn123@gmail.com">
+            <svg class="icon icon--copy" aria-hidden="true"><use href="assets/icons.svg#i-copy"/></svg>
+            <svg class="icon icon--check" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg>
+            <span data-copy-label>Copy address</span>
+          </button>
+        </div>
+        <ul class="contact__links">
+          <li>
+            <a href="https://github.com/glbnymyn123-GALBI" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-github-logo"/></svg>
+              GitHub
+            </a>
+          </li>
+          <!-- LinkedIn: paste your profile URL below and remove the comment markers.
+          <li>
+            <a href="https://www.linkedin.com/in/YOUR-HANDLE/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-linkedin-logo"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          -->
+        </ul>
+        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 Gal Binyamin</p>
+      <p>Hand-built with HTML, CSS and a little JavaScript.</p>
+    </div>
+  </footer>
+</body>
+</html>
