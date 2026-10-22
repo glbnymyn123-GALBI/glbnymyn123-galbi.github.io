@@ -44,7 +44,6 @@ git init -b main && git add -A && git commit -m "Portfolio" && git remote add or
 
 ## Before you share it on LinkedIn
 
-- **Add your LinkedIn link:** search `index.html` for `LinkedIn: paste`, put your profile URL in, and remove the comment markers.
 - **Fill the metric slots when you have real numbers:** search for `METRIC SLOT`. Each comment says which number belongs there (orders per week, WhatsApp inquiries per month, minutes saved per item). The page reads complete without them, so nothing looks unfinished in the meantime.
 - **Refresh LinkedIn's preview cache** after deploying: paste the URL into https://www.linkedin.com/post-inspector/ so LinkedIn picks up `og-image.png`.
 - **Hide the "Edit with Lovable" badge** on the Esther and MyCan sites (Lovable project settings, available on the Pro plan) so they look fully custom when people click through.
