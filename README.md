@@ -53,6 +53,7 @@ git init -b main && git add -A && git commit -m "Portfolio" && git remote add or
 - All copy is in `index.html`, grouped by section with comments.
 - Colors, type and spacing are CSS variables at the top of `styles.css`. Light and dark themes follow the visitor's system setting, and the moon/sun button lets them switch manually.
 - To swap a screenshot, replace the file in `assets/work/` with one of the same name and size: desktop shots are 2160x1350 with a 1200x750 `-1200` copy, phone shots are 780x1688.
+- The MarinePulse case plays a silent 30-second film: `assets/work/marinepulse-film.mp4` (1080p) and `marinepulse-film-720.mp4` (phones). It plays only while on screen, has a pause button, and stays still for visitors who prefer reduced motion. To update it, replace both files.
 - To regenerate `og-image.png`, edit `extras/og-card.html` (outside this folder) and render it at 1200x630.
 
 ## House style

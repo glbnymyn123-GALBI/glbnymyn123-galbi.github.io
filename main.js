@@ -104,6 +104,45 @@
     });
   });
 
+  // Case films: muted loops that play while on screen and pause off screen. The button
+  // pauses or resumes; with reduced motion nothing plays until the visitor presses it.
+  document.querySelectorAll('[data-film]').forEach((frame) => {
+    const video = frame.querySelector('video');
+    const button = frame.querySelector('[data-film-toggle]');
+    if (!video) return;
+    let heldByVisitor = reduceMotion;
+    const sync = () => {
+      frame.classList.toggle('is-paused', video.paused);
+      if (button) button.setAttribute('aria-label', video.paused ? 'Play film' : 'Pause film');
+    };
+    const play = () => {
+      const attempt = video.play();
+      if (attempt) attempt.catch(() => {});
+    };
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    if (button) {
+      button.addEventListener('click', () => {
+        if (video.paused) {
+          heldByVisitor = false;
+          play();
+        } else {
+          heldByVisitor = true;
+          video.pause();
+        }
+      });
+    }
+    if (hasIO) {
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !heldByVisitor) play();
+        else if (!entry.isIntersecting && !video.paused) video.pause();
+      }, { threshold: 0.35 }).observe(frame);
+    } else if (!heldByVisitor) {
+      play();
+    }
+    sync();
+  });
+
   // If a screenshot fails to load, show a quiet placeholder instead of a broken image.
   // Only trust the error event: srcset images can report complete with zero width
   // while the browser is still choosing a candidate.

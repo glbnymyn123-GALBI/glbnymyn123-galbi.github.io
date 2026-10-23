@@ -698,6 +698,53 @@ a.case__media:hover img {
   aspect-ratio: 16 / 10;
 }
 
+/* The MarinePulse film is 16:9 and dark in both themes */
+.case--feature .case__media--video {
+  aspect-ratio: 16 / 9;
+  background: #0f0f0e;
+}
+
+.case__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pause control for the looping film; always visible so touch users can find it */
+.film-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 999px;
+  background: rgb(15 15 14 / 0.72);
+  color: #f0efec;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease;
+}
+
+.film-toggle:hover {
+  background: rgb(15 15 14 / 0.9);
+}
+
+.film-toggle .icon--play,
+.is-paused .film-toggle .icon--pause {
+  display: none;
+}
+
+.is-paused .film-toggle .icon--play {
+  display: block;
+}
+
 .case__head {
   display: flex;
   align-items: flex-end;

@@ -151,13 +151,17 @@
 
         <!-- MarinePulse -->
         <article class="case case--feature" id="marinepulse" aria-labelledby="mp-title" data-reveal>
-          <a class="case__media" href="https://glbnymyn123-galbi.github.io/marinepulse/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/work/marinepulse-map-1200.jpg"
-                 srcset="assets/work/marinepulse-map-1200.jpg 1200w, assets/work/marinepulse-map.jpg 2160w"
-                 sizes="(min-width: 1320px) 1240px, 94vw"
-                 width="1200" height="750" loading="lazy" decoding="async"
-                 alt="MarinePulse map view with clustered sighting reports and a species detail panel">
-          </a>
+          <div class="case__media case__media--video" data-film>
+            <video muted loop playsinline preload="none" poster="assets/work/marinepulse-map.jpg"
+                   aria-label="30-second film of the MarinePulse dashboard: a sonar ping becomes a sighting cluster, the map dives into Dbaye in Lebanon, then the dashboard's numbers and statistical tests follow">
+              <source src="assets/work/marinepulse-film-720.mp4" type="video/mp4" media="(max-width: 760px)">
+              <source src="assets/work/marinepulse-film.mp4" type="video/mp4">
+            </video>
+            <button class="film-toggle" type="button" data-film-toggle aria-label="Play film">
+              <svg class="icon icon--pause" aria-hidden="true"><use href="assets/icons.svg#i-pause"/></svg>
+              <svg class="icon icon--play" aria-hidden="true"><use href="assets/icons.svg#i-play"/></svg>
+            </button>
+          </div>
           <div class="case__head">
             <div>
               <h3 class="case__title" id="mp-title">MarinePulse</h3>
