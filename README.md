@@ -6,7 +6,7 @@ A hand-built static site: `index.html`, `styles.css`, `main.js`, and an `assets/
 portfolio/
 ├── index.html          all page content
 ├── styles.css          design tokens (light + dark), layout, motion
-├── main.js             theme toggle, scroll reveals, copy-email button
+├── main.js             theme toggle, scroll reveals, showreel, film player, copy-email button
 ├── favicon.svg
 ├── apple-touch-icon.png
 ├── og-image.png        1200x630 LinkedIn / social preview
@@ -14,6 +14,7 @@ portfolio/
 └── assets/
     ├── fonts/          Geist + Geist Mono (self-hosted, SIL Open Font License)
     ├── icons.svg       Phosphor icon sprite (MIT)
+    ├── films/          the four case films, their posters and the hero showreel
     └── work/           real screenshots of the live projects
 ```
 
@@ -44,6 +45,7 @@ git init -b main && git add -A && git commit -m "Portfolio" && git remote add or
 
 ## Before you share it on LinkedIn
 
+- **Client sign-off for the films:** the MyCan and Esther Gomelle films show the clients' sites, and the monitoring pipeline film is built on sample data for a client project. Confirm each client is happy with public use before publishing.
 - **Fill the metric slots when you have real numbers:** search for `METRIC SLOT`. Each comment says which number belongs there (orders per week, WhatsApp inquiries per month, minutes saved per item). The page reads complete without them, so nothing looks unfinished in the meantime.
 - **Refresh LinkedIn's preview cache** after deploying: paste the URL into https://www.linkedin.com/post-inspector/ so LinkedIn picks up `og-image.png`.
 - **Hide the "Edit with Lovable" badge** on the Esther and MyCan sites (Lovable project settings, available on the Pro plan) so they look fully custom when people click through.
@@ -53,7 +55,8 @@ git init -b main && git add -A && git commit -m "Portfolio" && git remote add or
 - All copy is in `index.html`, grouped by section with comments.
 - Colors, type and spacing are CSS variables at the top of `styles.css`. Light and dark themes follow the visitor's system setting, and the moon/sun button lets them switch manually.
 - To swap a screenshot, replace the file in `assets/work/` with one of the same name and size: desktop shots are 2160x1350 with a 1200x750 `-1200` copy, phone shots are 780x1688.
-- The MarinePulse case plays a silent 30-second film: `assets/work/marinepulse-film.mp4` (1080p) and `marinepulse-film-720.mp4` (phones). It plays only while on screen, has a pause button, and stays still for visitors who prefer reduced motion. To update it, replace both files.
+- Every case opens with its film: `assets/films/<name>.mp4` (1080p, 30 fps, with sound) and `<name>-poster.jpg` (1600x900). One dialog at the end of `index.html` plays them all; `FILMS` in `main.js` holds each title and length. To update a film, replace its two files under the same names.
+- The hero showreel, `assets/films/reel.mp4`, is muted and 12.4 s long: three seconds per film in the order of the chapter bars under it (monitoring pipeline, MyCan, MarinePulse, Esther Gomelle). If you re-cut it, update `cuts` in `main.js`. It plays only while on screen and stays still for visitors who prefer reduced motion.
 - To regenerate `og-image.png`, edit `extras/og-card.html` (outside this folder) and render it at 1200x630.
 
 ## House style
