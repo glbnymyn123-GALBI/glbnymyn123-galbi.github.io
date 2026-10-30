@@ -1,157 +1,151 @@
-// Progressive enhancement only: the page reads fine without this file.
+// Theme toggle, scroll reveals, the showreel and the film player, copy-email button.
 (() => {
   const root = document.documentElement;
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hasIO = 'IntersectionObserver' in window;
 
-  // Theme toggle: an explicit choice wins over the system setting and is remembered.
-  const store = {
-    get() {
-      try { return localStorage.getItem('theme'); } catch { return null; }
-    },
-    set(value) {
-      try { localStorage.setItem('theme', value); } catch { /* storage unavailable */ }
-    },
+  // ---------- Theme (the head script applies a saved choice before first paint) ----------
+  const saved = () => {
+    try { return localStorage.getItem('theme'); } catch { return null; }
+  };
+  const save = (value) => {
+    try { localStorage.setItem('theme', value); } catch { /* storage unavailable */ }
   };
   const currentTheme = () => root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
   const toggle = document.querySelector('[data-theme-toggle]');
   const syncToggle = () => {
     if (!toggle) return;
-    const next = currentTheme() === 'dark' ? 'light' : 'dark';
-    toggle.setAttribute('aria-label', `Switch to ${next} theme`);
+    const dark = currentTheme() === 'dark';
+    toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    toggle.querySelector('use').setAttribute('href', `assets/icons.svg#i-${dark ? 'sun' : 'moon'}`);
   };
   if (toggle) {
+    syncToggle();
     toggle.addEventListener('click', () => {
       const next = currentTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
-      store.set(next);
+      save(next);
       syncToggle();
     });
-    if (systemDark.addEventListener) systemDark.addEventListener('change', syncToggle);
-    syncToggle();
+    systemDark.addEventListener('change', () => {
+      if (!saved()) syncToggle();
+    });
   }
 
-  // Nav gets its hairline once the page leaves the very top.
+  // ---------- Navigation border once the page scrolls ----------
   const nav = document.querySelector('[data-nav]');
-  const sentinel = document.querySelector('[data-top-sentinel]');
-  if (nav && sentinel && hasIO) {
-    new IntersectionObserver(([entry]) => {
-      nav.classList.toggle('is-scrolled', !entry.isIntersecting);
-    }).observe(sentinel);
-  }
+  const onScroll = () => nav && nav.toggleAttribute('data-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  // Mark the nav link for the section in view. The hero is watched too, so no link
-  // stays highlighted after scrolling back to the top.
-  const links = [...document.querySelectorAll('.nav__links a')];
-  const sections = [document.getElementById('top'), ...links.map((a) => document.querySelector(a.getAttribute('href')))].filter(Boolean);
-  if (sections.length && hasIO) {
-    const spy = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((a) => {
-          if (a.getAttribute('href') === `#${entry.target.id}`) a.setAttribute('aria-current', 'true');
-          else a.removeAttribute('aria-current');
+  // ---------- Reveal on scroll ----------
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
         });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach((section) => spy.observe(section));
+      },
+      { rootMargin: '0px 0px -8% 0px' },
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-in'));
   }
 
-  // Reveal sections as they enter the viewport.
-  if (!reduceMotion && hasIO) {
-    root.classList.add('reveal-ready');
-    const reveal = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-in');
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-    document.querySelectorAll('[data-reveal]').forEach((el) => reveal.observe(el));
+  // ---------- Films: one dialog plays them all, with sound ----------
+  const FILMS = {
+    marinepulse: { title: 'MarinePulse', length: '1:26' },
+    pipeline: { title: 'Narrative monitoring pipeline', length: '1:25' },
+    mycan: { title: 'MyCan', length: '0:30' },
+    esther: { title: 'Esther Gomelle', length: '0:30' },
+  };
+  const theater = document.querySelector('[data-theater]');
+  const screen = theater && theater.querySelector('video');
+  const reel = document.querySelector('[data-reel] video');
+  let reelInView = false;
+
+  const playReel = () => {
+    if (reel && !reduceMotion && reelInView && !(theater && theater.open)) reel.play().catch(() => {});
+  };
+
+  const openFilm = (id) => {
+    const film = FILMS[id];
+    if (!film || !theater || !screen) return;
+    theater.querySelector('[data-theater-title]').textContent = `${film.title} · ${film.length}`;
+    screen.poster = `assets/films/${id}-poster.jpg`;
+    screen.src = `assets/films/${id}.mp4`;
+    if (reel) reel.pause();
+    if (typeof theater.showModal === 'function') theater.showModal();
+    else theater.setAttribute('open', '');
+    screen.play().catch(() => {});
+  };
+
+  document.querySelectorAll('[data-open-film]').forEach((trigger) => {
+    trigger.addEventListener('click', () => openFilm(trigger.dataset.openFilm));
+  });
+
+  if (theater && screen) {
+    theater.querySelector('[data-theater-close]').addEventListener('click', () => theater.close());
+    // A click on the dimmed backdrop lands on the dialog itself.
+    theater.addEventListener('click', (event) => {
+      if (event.target === theater) theater.close();
+    });
+    theater.addEventListener('close', () => {
+      screen.pause();
+      screen.removeAttribute('src');
+      screen.load();
+      playReel();
+    });
   }
 
-  // Copy the email address, with a fallback for browsers without the async clipboard.
-  const status = document.querySelector('[data-copy-status]');
+  // ---------- Showreel: a muted loop while on screen; each bar fills while its film shows ----------
+  if (reel) {
+    const chapters = [...document.querySelectorAll('[data-chapter]')];
+    const cuts = [0, 3, 6, 9, 12.4];
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(
+        ([entry]) => {
+          reelInView = entry.isIntersecting;
+          if (reelInView) playReel();
+          else reel.pause();
+        },
+        { threshold: 0.3 },
+      ).observe(reel);
+    }
+    if (!reduceMotion) {
+      const tick = () => {
+        const t = reel.currentTime;
+        chapters.forEach((chapter, i) => {
+          const p = Math.min(1, Math.max(0, (t - cuts[i]) / (cuts[i + 1] - cuts[i])));
+          chapter.style.setProperty('--p', p.toFixed(3));
+          chapter.toggleAttribute('data-active', t >= cuts[i] && t < cuts[i + 1]);
+        });
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+
+  // ---------- Copy the email address ----------
   document.querySelectorAll('[data-copy]').forEach((button) => {
-    const label = button.querySelector('[data-copy-label]');
-    let timer;
+    const status = button.parentElement.querySelector('[role="status"]');
+    const icon = button.querySelector('use');
     button.addEventListener('click', async () => {
-      const text = button.getAttribute('data-copy');
-      let ok = false;
       try {
-        await navigator.clipboard.writeText(text);
-        ok = true;
+        await navigator.clipboard.writeText(button.dataset.copy);
+        icon.setAttribute('href', 'assets/icons.svg#i-check');
+        if (status) status.textContent = 'Copied';
+        setTimeout(() => {
+          icon.setAttribute('href', 'assets/icons.svg#i-copy');
+          if (status) status.textContent = '';
+        }, 1800);
       } catch {
-        const field = document.createElement('textarea');
-        field.value = text;
-        field.setAttribute('readonly', '');
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.append(field);
-        field.select();
-        try { ok = document.execCommand('copy'); } catch { ok = false; }
-        field.remove();
+        if (status) status.textContent = 'Copy failed. Select the address instead.';
       }
-      if (label) label.textContent = ok ? 'Copied' : 'Copy failed';
-      if (status) status.textContent = ok ? 'Email address copied.' : `Could not copy. The address is ${text}.`;
-      button.classList.toggle('is-done', ok);
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        if (label) label.textContent = 'Copy address';
-        button.classList.remove('is-done');
-      }, 2200);
     });
-  });
-
-  // Case films: muted loops that play while on screen and pause off screen. The button
-  // pauses or resumes; with reduced motion nothing plays until the visitor presses it.
-  document.querySelectorAll('[data-film]').forEach((frame) => {
-    const video = frame.querySelector('video');
-    const button = frame.querySelector('[data-film-toggle]');
-    if (!video) return;
-    let heldByVisitor = reduceMotion;
-    const sync = () => {
-      frame.classList.toggle('is-paused', video.paused);
-      if (button) button.setAttribute('aria-label', video.paused ? 'Play film' : 'Pause film');
-    };
-    const play = () => {
-      const attempt = video.play();
-      if (attempt) attempt.catch(() => {});
-    };
-    video.addEventListener('play', sync);
-    video.addEventListener('pause', sync);
-    if (button) {
-      button.addEventListener('click', () => {
-        if (video.paused) {
-          heldByVisitor = false;
-          play();
-        } else {
-          heldByVisitor = true;
-          video.pause();
-        }
-      });
-    }
-    if (hasIO) {
-      new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting && !heldByVisitor) play();
-        else if (!entry.isIntersecting && !video.paused) video.pause();
-      }, { threshold: 0.35 }).observe(frame);
-    } else if (!heldByVisitor) {
-      play();
-    }
-    sync();
-  });
-
-  // If a screenshot fails to load, show a quiet placeholder instead of a broken image.
-  // Only trust the error event: srcset images can report complete with zero width
-  // while the browser is still choosing a candidate.
-  document.querySelectorAll('img').forEach((img) => {
-    const frame = img.closest('.shot, .case__media, .case__phone, .wf');
-    if (!frame) return;
-    img.addEventListener('error', () => {
-      if (!img.naturalWidth) frame.classList.add('is-missing');
-    });
-    img.addEventListener('load', () => frame.classList.remove('is-missing'));
   });
 })();
